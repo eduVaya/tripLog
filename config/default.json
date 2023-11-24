@@ -1,0 +1,10 @@
+{
+    "pgConnection": {
+        "host": "localhost",
+        "user": "postgres",
+        "port": "5432",
+        "password": "password",
+        "database": "tripLog",
+        "max": 20
+    }
+}
