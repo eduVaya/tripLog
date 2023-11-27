@@ -6,5 +6,6 @@
         "password": "password",
         "database": "tripLog",
         "max": 20
-    }
+    },
+    "jwtSecret": "mysecrettoken"
 }

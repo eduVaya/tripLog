@@ -14,18 +14,9 @@ app.get('/', (req, res) => res.send('API Running'));
 
 // Define Routes
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/auth', require('./routes/api/auth'));
 
 
-app.get('/test', (req, res) => {
-    database.query(`SELECT * FROM testUser`, (error, response) => {
-        if (!error) {
-            console.log(response.rows);
-        } else {
-            console.log(error.message);
-        }
-        database.release(true);
-    })
-});
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
