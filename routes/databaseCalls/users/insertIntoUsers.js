@@ -2,7 +2,7 @@ const { query } = require('../../../config/db');
 
 module.exports = async (username, hashPassword) => {
     try {
-        const result = await query('INSERT INTO users(username, password) VALUES($1, $2) RETURNING username, userId', [username, hashPassword]);
+        const result = await query('INSERT INTO users(username, password) VALUES($1, $2) RETURNING username, user_id', [username, hashPassword]);
         if (result.length <= 0) {
             return false
         } else {
