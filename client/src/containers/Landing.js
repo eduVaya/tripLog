@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
     return (
-        <div className="bg-secondary d-flex align-items-center justify-content-center vh-100">
+        <div className="bg-secondary d-flex align-items-center justify-content-center vh-100 landingContainer">
             <div className="container text-center">
                 <h1 className="text-white">Trip Logs</h1>
                 <p className="text-white">Create and share logs of your trips.</p>
                 <div className="col-md-6 mx-auto">
-                    <button type="button" className="btn btn-info col me-2">Sign Up</button>
-                    <button type="button" className="btn btn-light col ">Login</button>
+                    <Link to='/register' type="button" className="btn btn-info col me-2">Sign Up</Link>
+                    <Link to='/login' type="button" className="btn btn-light col ">Login</Link>
                 </div>
             </div>
         </div>

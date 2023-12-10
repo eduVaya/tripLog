@@ -18,6 +18,14 @@
   color: #61dafb;
 }
 
-.landingPageContainer {
-  width: calc(100vw - 60rem);
+.landingContainer {
+  overflow: hidden;
+
+}
+
+.authContainer {
+  margin: auto;
+  padding: 0 2rem;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
