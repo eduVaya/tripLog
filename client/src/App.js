@@ -1,9 +1,12 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
+import Navbar from './components/Navbar.js'
+import Landing from './containers/Landing.js'
 import './App.css';
 
 const App = () =>
   <Fragment>
-    <h1>App</h1>
+    <Navbar />
+    <Landing />
   </Fragment>
 
 export default App;
