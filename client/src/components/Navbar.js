@@ -1,7 +1,22 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { logout } from "../actions/authAction";
 
-const Navbar = () => {
+export default () => {
+    const { isAuthenticated, loading } = useSelector((state) => state.auth);
+    const dispatch = useDispatch();
+    const authLinks = (
+        <>
+            <a className="nav-link" href="#!" onClick={() => { dispatch(logout()) }}>Logout</a>
+        </>
+    );
+    const guestLinks = (
+        <>
+            <Link className="nav-link" to="/register">Register</Link>
+            <Link className="nav-link" to="/login">Login</Link>
+        </>
+    );
     return (
         <>
             <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
@@ -13,8 +28,7 @@ const Navbar = () => {
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ml-auto">
                             <Link className="nav-link" aria-current="page" to="!#">Posts</Link>
-                            <Link className="nav-link" to="/register">Register</Link>
-                            <Link className="nav-link" to="/login">Login</Link>
+                            {!loading && (isAuthenticated ? authLinks : guestLinks)}
                         </div>
                     </div>
                 </div>
@@ -23,4 +37,3 @@ const Navbar = () => {
     );
 }
 
-export default Navbar

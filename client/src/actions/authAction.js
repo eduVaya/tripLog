@@ -44,8 +44,6 @@ export const registerAction = ({ username, password }) => async dispatch => {
     }
 }
 
-
-
 export const loginAction = (username, password) => async dispatch => {
     const config = {
         headers: {
@@ -68,4 +66,8 @@ export const loginAction = (username, password) => async dispatch => {
         }
         dispatch({ type: REMOVE_TOKEN });
     }
+}
+
+export const logout = () => dispatch => {
+    dispatch({ type: REMOVE_TOKEN });
 }

@@ -21,7 +21,7 @@ if (localStorage.token) {
 }
 
 const App = () => {
-  useEffect(() => {
+  useEffect(() => { //TODO: load the page two time. find better way to manage token and authentication
     store.dispatch(loadUser());
   }, []);
 
