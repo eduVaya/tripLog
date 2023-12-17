@@ -1,17 +1,23 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { loginAction } from "../actions/authAction";
 
-const Login = () => {
+export default () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
     });
     const { username, password } = formData;
-
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const dispatch = useDispatch();
     const onSubmit = (e) => {
         e.preventDefault();
+        dispatch(loginAction(username, password));
     }
-
+    if (isAuthenticated) {
+        return <Navigate to='feed'></Navigate>
+    }
     return (
         <div className="authContainer container">
             <h1 className="text-info">Sign In</h1>
@@ -45,5 +51,3 @@ const Login = () => {
         </div >
     );
 }
-
-export default Login

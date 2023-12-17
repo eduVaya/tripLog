@@ -1,23 +1,31 @@
-import React, { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { setAlertAction } from "../actions/alertActions";
+import { registerAction } from '../actions/authAction'
 
-const Register = () => {
+
+export default () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
         confirmPassword: ''
     });
     const { username, password, confirmPassword } = formData;
+    const dispatch = useDispatch();
+    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
     const onSubmit = (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {
-            console.log('Passwords do not match')
+            dispatch(setAlertAction('Passwords do not match', 'danger'));
         } else {
-            console.log(formData);
+            dispatch(registerAction({ username, password }));
         }
     }
-
+    if (isAuthenticated) {
+        return <Navigate to='feed'></Navigate>
+    }
     return (
         <div className="authContainer container">
             <h1 className="text-info">Sign Up</h1>
@@ -30,7 +38,7 @@ const Register = () => {
                         name="username"
                         value={username}
                         onChange={e => setFormData({ ...formData, username: e.target.value })}
-                        required
+                    // required
                     />
                 </div>
                 <div className="mb-3">
@@ -41,7 +49,7 @@ const Register = () => {
                         name="password"
                         value={password}
                         onChange={e => setFormData({ ...formData, password: e.target.value })}
-                        required
+                    // required
                     />
                 </div>
                 <div className="mb-3">
@@ -52,15 +60,12 @@ const Register = () => {
                         name="confirmPassword"
                         value={confirmPassword}
                         onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })}
-                        required
+                    // required
                     />
                 </div>
                 <button type="submit" className="btn btn-info text-white">Register</button>
                 <p>Already have an account? <Link to="/login" className="link-primary">Sign In</Link></p>
-
             </form>
         </div >
     );
 }
-
-export default Register
