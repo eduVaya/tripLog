@@ -1,7 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { Link, Navigate } from "react-router-dom";
 
-const Landing = () => {
+export default () => {
+    const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
+    if (isAuthenticated) {
+        return <Navigate to='feed'></Navigate>
+    }
     return (
         <div className="bg-secondary d-flex align-items-center justify-content-center vh-100 landingContainer">
             <div className="container text-center">
@@ -15,4 +20,3 @@ const Landing = () => {
         </div>
     )
 }
-export default Landing

@@ -8,6 +8,8 @@ export default () => {
     const dispatch = useDispatch();
     const authLinks = (
         <>
+            <Link className="nav-link" to="/myposts">My Posts</Link>
+            <Link className="nav-link" to="/profile">Profile</Link>
             <a className="nav-link" href="#!" onClick={() => { dispatch(logout()) }}>Logout</a>
         </>
     );
@@ -27,7 +29,7 @@ export default () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ml-auto">
-                            <Link className="nav-link" aria-current="page" to="!#">Posts</Link>
+                            <Link className="nav-link" aria-current="page" to="/posts">Posts</Link>
                             {!loading && (isAuthenticated ? authLinks : guestLinks)}
                         </div>
                     </div>

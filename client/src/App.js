@@ -15,6 +15,8 @@ import { loadUser } from './actions/authAction.js';
 // Others
 import { setAuthToken } from './utilities/helperFunction.js';
 import './App.css';
+import Posts from './containers/Posts.js';
+import InsertPost from './containers/InsertPost.js';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -34,6 +36,9 @@ const App = () => {
           <Route exact path="/" element={<Landing />} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
+          <Route exact path="/posts" element={<Posts />} />
+          <Route exact path="/insertpost" element={<InsertPost />} />
+
         </Routes>
       </Fragment>
     </BrowserRouter>
