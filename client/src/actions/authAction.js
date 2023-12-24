@@ -28,7 +28,6 @@ export const registerAction = ({ username, password }) => async dispatch => {
     const body = JSON.stringify({ username, password });
     try {
         const response = await axios.post('/api/users', body, config);
-        console.log('response', response)
         dispatch({
             type: REGISTER_SUCCESS,
             payload: response.data
