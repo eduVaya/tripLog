@@ -10,7 +10,7 @@ export default () => {
         <>
             <Link className="nav-link" to="/myposts">My Posts</Link>
             <Link className="nav-link" to="/profile">Profile</Link>
-            <a className="nav-link" href="#!" onClick={() => { dispatch(logout()) }}>Logout</a>
+            <Link className="nav-link" to="/" onClick={() => { dispatch(logout()) }}>Logout</Link>
         </>
     );
     const guestLinks = (
@@ -21,7 +21,7 @@ export default () => {
     );
     return (
         <>
-            <nav className="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
+            <nav className="navbar" data-bs-theme="dark">
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/">Trip Logs</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
