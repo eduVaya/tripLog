@@ -1,0 +1,12 @@
+.roundedProfilePicture {
+    border-radius: 50%;
+    /* Makes the image round */
+    overflow: hidden;
+    /* Hides any overflowing content */
+    margin: auto;
+}
+
+.roundedProfilePicture--image--small {
+    width: 3rem;
+    height: 3rem;
+}

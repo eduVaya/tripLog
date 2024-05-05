@@ -2,7 +2,7 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // Components
-import Navbar from './components/Navbar.js';
+import Navbar from './components/Navbar/Navbar.js';
 import Alert from './components/Alert.js';
 // Containers
 import Landing from './containers/Landing.js'
@@ -14,7 +14,7 @@ import store from './store.js';
 import { loadUser } from './actions/authAction.js';
 // Others
 import { setAuthToken } from './utilities/helperFunction.js';
-import './App.css';
+import './style/index.css';
 import Posts from './containers/Posts.js';
 import InsertPost from './containers/InsertPost.js';
 
@@ -38,7 +38,6 @@ const App = () => {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/posts" element={<Posts />} />
           <Route exact path="/insertpost" element={<InsertPost />} />
-
         </Routes>
       </Fragment>
     </BrowserRouter>

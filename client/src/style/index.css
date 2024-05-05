@@ -1,0 +1,11 @@
+/* style */
+@import '../App.css';
+@import './baseElements.css';
+
+/* components */
+@import '../components/Navbar/Navbar.css';
+@import '../components/ToggleTextButtons/ToggleTextButtons.css';
+@import '../components/RoundedProfilePicture/RoundedProfilePicture.css';
+@import '../components/Modal/Modal.css';
+@import '../components/Register/Register.css';
+@import '../components/Login/Login.css';

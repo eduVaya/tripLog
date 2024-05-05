@@ -1,26 +1,30 @@
 import React, { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { loginAction } from "../actions/authAction";
+import { setAlertAction } from "../../actions/alertActions";
+import { registerAction } from '../../actions/authAction'
+
 
 export default () => {
     const [formData, setFormData] = useState({
         username: '',
         password: '',
+        confirmPassword: ''
     });
-    const { username, password } = formData;
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+    const { username, password, confirmPassword } = formData;
     const dispatch = useDispatch();
+
     const onSubmit = (e) => {
         e.preventDefault();
-        dispatch(loginAction(username, password));
-    }
-    if (isAuthenticated) {
-        return <Navigate to='feed'></Navigate>
+        if (password !== confirmPassword) {
+            dispatch(setAlertAction('Passwords do not match', 'danger'));
+        } else {
+            dispatch(registerAction({ username, password }));
+        }
     }
     return (
         <div className="authContainer container">
-            <h1 className="text-info">Sign In</h1>
+            <h1 className="text-info">Sign Up</h1>
             <form onSubmit={e => onSubmit(e)}>
                 <div className="mb-3">
                     <label className="form-label">Username</label>
@@ -30,7 +34,7 @@ export default () => {
                         name="username"
                         value={username}
                         onChange={e => setFormData({ ...formData, username: e.target.value })}
-                        required
+                    // required
                     />
                 </div>
                 <div className="mb-3">
@@ -41,11 +45,22 @@ export default () => {
                         name="password"
                         value={password}
                         onChange={e => setFormData({ ...formData, password: e.target.value })}
-                        required
+                    // required
                     />
                 </div>
-                <button type="submit" className="btn btn-info text-white">Login</button>
+                <div className="mb-3">
+                    <label className="form-label">Confirm Password</label>
+                    <input
+                        type="password"
+                        className="form-control"
+                        name="confirmPassword"
+                        value={confirmPassword}
+                        onChange={e => setFormData({ ...formData, confirmPassword: e.target.value })}
+                    // required
+                    />
+                </div>
+                <button type="submit" className="btn btn-info text-white">Register</button>
             </form>
-        </div >
+        </div>
     );
 }

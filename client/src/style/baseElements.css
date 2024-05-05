@@ -1,0 +1,44 @@
+/* elements */
+.btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: auto;
+}
+
+/* Colors */
+.bg-main-color {
+    background-color: var(--main-color);
+}
+
+.bg-main-color:hover {
+    background-color: var(--darker-main-color);
+}
+
+.bg-white-color {
+    background-color: #fff;
+}
+
+.text-white-color {
+    color: #fff;
+}
+
+.text-blue-color {
+    color: #0075A3;
+}
+
+.text-light-gray-color {
+    /* color: var(--light-gray-color); */
+}
+
+.btn-shadow {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s;
+
+}
+
+.btn-shadow:hover {
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+}

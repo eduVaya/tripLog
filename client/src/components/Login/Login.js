@@ -45,6 +45,8 @@ export default () => {
                     />
                 </div>
                 <button type="submit" className="btn btn-info text-white">Login</button>
+                <p>Don't have an account? <Link to="/register" className="link-primary">Sign up</Link></p>
+
             </form>
         </div >
     );
