@@ -6,7 +6,7 @@ import ToggleTextButtons from "../ToggleTextButtons/ToggleNavButtons"
 import RoundedProfilePicture from "../RoundedProfilePicture/RoundedProfilePicture";
 import Modal from "../Modal/Modal";
 import Register from "../Register/Register";
-import Login from "../../containers/Login";
+import Login from "../Login/Login";
 
 export default () => {
     const [showMenu, setShowMenu] = useState(false);
@@ -33,10 +33,7 @@ export default () => {
                 ☰
             </div>
             <Modal open={isOpen}>
-                <div>
-                    {isRegister ? <Register /> : <Login />}
-                    <button onClick={() => setIsOpen(false)}>Close</button>
-                </div>
+                {isRegister ? <Register /> : <Login closeModal={() => setIsOpen(false)} />}
             </Modal>
         </nav>
     );

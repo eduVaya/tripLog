@@ -1,0 +1,48 @@
+.login--container {
+    /* width: 420px; */
+    background-color: rgb(244, 244, 244);
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    height: 20rem;
+    width: 20rem;
+    border-radius: 1rem;
+}
+
+.login--headerContainer {
+    display: flex;
+    border-bottom: 1px solid var(--lighter-gray-color);
+
+}
+
+.login--title {
+    color: var(--light-gray-color);
+}
+
+.login--closeButton {
+    border: none;
+    background: none;
+    margin: auto 0 auto auto;
+    font-size: 2rem;
+    color: var(--light-gray-color);
+    cursor: pointer;
+}
+
+.login--form {
+    display: grid;
+    gap: 1rem;
+}
+
+.login--submitButton {
+    width: 100%;
+}
+
+.login--footerContainer {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var(--lighter-gray-color);
+}
+
+.login--forgotPassword {
+    margin: auto 0;
+}

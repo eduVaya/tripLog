@@ -6,8 +6,8 @@ import Navbar from './components/Navbar/Navbar.js';
 import Alert from './components/Alert.js';
 // Containers
 import Landing from './containers/Landing.js'
-import Login from './containers/Login.js'
-import Register from './containers/Register.js'
+// import Login from './containers/Login.js'
+// import Register from './containers/Register.js'
 //Redux
 import { Provider } from 'react-redux';
 import store from './store.js';
@@ -34,8 +34,8 @@ const App = () => {
         <Alert />
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route exact path="/register" element={<Register />} />
-          <Route exact path="/login" element={<Login />} />
+          {/* <Route exact path="/register" element={<Register />} /> */}
+          {/* <Route exact path="/login" element={<Login />} /> */}
           <Route exact path="/posts" element={<Posts />} />
           <Route exact path="/insertpost" element={<InsertPost />} />
         </Routes>

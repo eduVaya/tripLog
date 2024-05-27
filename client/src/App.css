@@ -35,4 +35,6 @@ h4 {
   --main-color: #C0E2E7;
   --darker-main-color: #8FC9D2;
   --light-gray-color: #888;
+  --lighter-gray-color: rgb(230, 230, 230);
+  --rounded-borders: 25px
 }
